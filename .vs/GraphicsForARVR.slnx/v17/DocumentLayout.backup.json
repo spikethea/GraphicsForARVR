@@ -3,28 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\GUI.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|solutionrelative:GUI.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\GUI.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|solutionrelative:GUI.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\App.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|solutionrelative:App.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\external\\imgui\\imgui.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|solutionrelative:external\\imgui\\imgui.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\main.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|solutionrelative:main.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\GUI.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|solutionrelative:GUI.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\App.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -35,8 +19,64 @@
       "RelativeMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|solutionrelative:Mesh.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\Renderer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|solutionrelative:Renderer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\main.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|solutionrelative:main.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\Transform.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|solutionrelative:Transform.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\App.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|solutionrelative:App.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\Renderer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|solutionrelative:Renderer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|solutionrelative:Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\curve_fragment.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|solutionrelative:curve_fragment.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|solutionrelative:Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\Mesh.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|solutionrelative:Mesh.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\curve_tesselation-evaluation.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|solutionrelative:curve_tesselation-evaluation.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\curve_tesselation-control.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|solutionrelative:curve_tesselation-control.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\curve_vertex.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|solutionrelative:curve_vertex.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\dependencies\\include\\GL\\eglew.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|solutionrelative:dependencies\\include\\GL\\eglew.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\GUI.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|solutionrelative:GUI.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\external\\imgui\\imgui.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{877C633B-EDF8-4299-88A3-02CA6B85166C}|GraphicsForARVR.vcxproj|solutionrelative:external\\imgui\\imgui.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\spike\\Documents\\OpenGL\\LSystems\\Projects\\Tutorial\\compiler.py||{8B382828-6202-11D1-8870-0000F87579D2}"
@@ -53,65 +93,58 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GUI.cpp",
-              "DocumentMoniker": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\GUI.cpp",
-              "RelativeDocumentMoniker": "GUI.cpp",
-              "ToolTip": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\GUI.cpp",
-              "RelativeToolTip": "GUI.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-02-18T19:33:49.606Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "App.cpp",
-              "DocumentMoniker": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\App.cpp",
-              "RelativeDocumentMoniker": "App.cpp",
-              "ToolTip": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\App.cpp",
-              "RelativeToolTip": "App.cpp",
-              "ViewState": "AgIAADkAAAAAAAAAAAAWwEcAAAAkAAAAAAAAAA==",
+              "Title": "Mesh.cpp",
+              "DocumentMoniker": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\Mesh.cpp",
+              "RelativeDocumentMoniker": "Mesh.cpp",
+              "ToolTip": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\Mesh.cpp",
+              "RelativeToolTip": "Mesh.cpp",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAFkAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-02-18T19:27:55.297Z",
+              "WhenOpened": "2026-02-18T17:49:30.943Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "imgui.h",
-              "DocumentMoniker": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\external\\imgui\\imgui.h",
-              "RelativeDocumentMoniker": "external\\imgui\\imgui.h",
-              "ToolTip": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\external\\imgui\\imgui.h [Read Only]",
-              "RelativeToolTip": "external\\imgui\\imgui.h [Read Only]",
-              "ViewState": "AgIAAEEBAAAAAAAAAADgvyIBAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-02-18T18:46:07.786Z",
-              "EditorCaption": " [Read Only]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GUI.h",
-              "DocumentMoniker": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\GUI.h",
-              "RelativeDocumentMoniker": "GUI.h",
-              "ToolTip": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\GUI.h",
-              "RelativeToolTip": "GUI.h",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAIAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-02-18T19:18:45.214Z",
+              "Title": "Renderer.cpp",
+              "DocumentMoniker": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\Renderer.cpp",
+              "RelativeDocumentMoniker": "Renderer.cpp",
+              "ToolTip": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\Renderer.cpp",
+              "RelativeToolTip": "Renderer.cpp",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABQAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-02-20T18:54:35.431Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
+              "Title": "Camera.h",
+              "DocumentMoniker": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\Camera.h",
+              "RelativeDocumentMoniker": "Camera.h",
+              "ToolTip": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\Camera.h",
+              "RelativeToolTip": "Camera.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-02-20T19:22:29.016Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAABEAAAAAAAAAAADwvxsAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAPkAAAAAAAAAAAAcwAYBAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-02-18T19:11:11.689Z",
               "EditorCaption": ""
@@ -124,7 +157,7 @@
               "RelativeDocumentMoniker": "main.h",
               "ToolTip": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\main.h",
               "RelativeToolTip": "main.h",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAWwAoAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2026-02-18T19:07:02.946Z",
               "EditorCaption": ""
@@ -132,19 +165,123 @@
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "Transform.cpp",
+              "DocumentMoniker": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\Transform.cpp",
+              "RelativeDocumentMoniker": "Transform.cpp",
+              "ToolTip": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\Transform.cpp",
+              "RelativeToolTip": "Transform.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-02-20T19:16:56.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "App.h",
               "DocumentMoniker": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\App.h",
               "RelativeDocumentMoniker": "App.h",
               "ToolTip": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\App.h",
               "RelativeToolTip": "App.h",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAAAwAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABwAAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2026-02-18T18:45:45.64Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "App.cpp",
+              "DocumentMoniker": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\App.cpp",
+              "RelativeDocumentMoniker": "App.cpp",
+              "ToolTip": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\App.cpp",
+              "RelativeToolTip": "App.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-02-18T19:27:55.297Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "Renderer.h",
+              "DocumentMoniker": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\Renderer.h",
+              "RelativeDocumentMoniker": "Renderer.h",
+              "ToolTip": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\Renderer.h",
+              "RelativeToolTip": "Renderer.h",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABMAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-02-20T14:00:35.583Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GUI.cpp",
+              "DocumentMoniker": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\GUI.cpp",
+              "RelativeDocumentMoniker": "GUI.cpp",
+              "ToolTip": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\GUI.cpp",
+              "RelativeToolTip": "GUI.cpp",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAiwBwAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-02-18T19:33:49.606Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "curve_fragment.txt",
+              "DocumentMoniker": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\curve_fragment.txt",
+              "RelativeDocumentMoniker": "curve_fragment.txt",
+              "ToolTip": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\curve_fragment.txt",
+              "RelativeToolTip": "curve_fragment.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-02-20T14:26:17.747Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Camera.cpp",
+              "DocumentMoniker": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\Camera.cpp",
+              "RelativeDocumentMoniker": "Camera.cpp",
+              "ToolTip": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\Camera.cpp",
+              "RelativeToolTip": "Camera.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-02-20T19:19:13.885Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "curve_tesselation-evaluation.txt",
+              "DocumentMoniker": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\curve_tesselation-evaluation.txt",
+              "RelativeDocumentMoniker": "curve_tesselation-evaluation.txt",
+              "ToolTip": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\curve_tesselation-evaluation.txt",
+              "RelativeToolTip": "curve_tesselation-evaluation.txt",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-02-20T14:25:55.073Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "curve_tesselation-control.txt",
+              "DocumentMoniker": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\curve_tesselation-control.txt",
+              "RelativeDocumentMoniker": "curve_tesselation-control.txt",
+              "ToolTip": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\curve_tesselation-control.txt",
+              "RelativeToolTip": "curve_tesselation-control.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-02-20T14:25:04.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "Mesh.h",
               "DocumentMoniker": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\Mesh.h",
               "RelativeDocumentMoniker": "Mesh.h",
@@ -157,20 +294,57 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Mesh.cpp",
-              "DocumentMoniker": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\Mesh.cpp",
-              "RelativeDocumentMoniker": "Mesh.cpp",
-              "ToolTip": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\Mesh.cpp",
-              "RelativeToolTip": "Mesh.cpp",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAswF0AAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-02-18T17:49:30.943Z",
+              "DocumentIndex": 15,
+              "Title": "curve_vertex.txt",
+              "DocumentMoniker": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\curve_vertex.txt",
+              "RelativeDocumentMoniker": "curve_vertex.txt",
+              "ToolTip": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\curve_vertex.txt",
+              "RelativeToolTip": "curve_vertex.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-02-20T14:24:20.161Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 16,
+              "Title": "eglew.h",
+              "DocumentMoniker": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\dependencies\\include\\GL\\eglew.h",
+              "RelativeDocumentMoniker": "dependencies\\include\\GL\\eglew.h",
+              "ToolTip": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\dependencies\\include\\GL\\eglew.h [Read Only]",
+              "RelativeToolTip": "dependencies\\include\\GL\\eglew.h [Read Only]",
+              "ViewState": "AgIAAI8AAAAAAAAAAAAAAI8AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-02-20T13:14:38.663Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "GUI.h",
+              "DocumentMoniker": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\GUI.h",
+              "RelativeDocumentMoniker": "GUI.h",
+              "ToolTip": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\GUI.h",
+              "RelativeToolTip": "GUI.h",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAIAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-02-18T19:18:45.214Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "imgui.h",
+              "DocumentMoniker": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\external\\imgui\\imgui.h",
+              "RelativeDocumentMoniker": "external\\imgui\\imgui.h",
+              "ToolTip": "C:\\Users\\spike\\Documents\\OpenGL\\GraphicsForARVR\\external\\imgui\\imgui.h [Read Only]",
+              "RelativeToolTip": "external\\imgui\\imgui.h [Read Only]",
+              "ViewState": "AgIAAEEBAAAAAAAAAADgvyIBAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-02-18T18:46:07.786Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
               "Title": "compiler.py",
               "DocumentMoniker": "C:\\Users\\spike\\Documents\\OpenGL\\LSystems\\Projects\\Tutorial\\compiler.py",
               "RelativeDocumentMoniker": "..\\LSystems\\Projects\\Tutorial\\compiler.py",

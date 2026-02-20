@@ -1,0 +1,10 @@
+#version 450 core
+
+uniform vec4 tint;
+
+out vec4 FinalColor;
+
+void main()
+{
+	FinalColor = tint;
+}

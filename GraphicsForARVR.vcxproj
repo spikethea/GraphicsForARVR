@@ -143,6 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="external\imgui\imgui.cpp" />
     <ClCompile Include="external\imgui\imgui_demo.cpp" />
     <ClCompile Include="external\imgui\imgui_draw.cpp" />
@@ -154,9 +155,12 @@
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="dependencies\GLFW\include\GLFW\glfw3.h" />
     <ClInclude Include="dependencies\GLFW\include\GLFW\glfw3native.h" />
     <ClInclude Include="dependencies\include\glad\glad.h" />
@@ -168,6 +172,14 @@
     <ClInclude Include="GUI.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="Transform.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="curve_fragment.txt" />
+    <Text Include="curve_tesselation-control.txt" />
+    <Text Include="curve_tesselation-evaluation.txt" />
+    <Text Include="curve_vertex.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -10,7 +10,7 @@
 
 class App {
 public:
-    std::vector<Mesh> trees;
+    Mesh mesh;
     int activeIndex = 0;
 
 	GUI gui;
@@ -27,8 +27,4 @@ public:
     void selectActiveLSystem(int index);
 
     void updateActiveLSystem(string Lsystem, float unitLength, float angleDeg);
-
-    void render();
-
-    void drawCurrentMesh();
 };

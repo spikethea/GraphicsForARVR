@@ -12,9 +12,7 @@
 
     void App::release () {
         gui.cleanup();
-        for (int i = 0; i < trees.size(); i++) {
-            trees[i].release();
-        }
+        mesh.release();
 	}
 
 
@@ -59,15 +57,4 @@
 
     void App::updateActiveLSystem(string Lsystem, float unitLength, float angleDeg) {
         //trees[activeIndex].updateLSystem();
-    }
-
-    void App::render() {
-        drawCurrentMesh();
-	}
-
-
-
-    void App::drawCurrentMesh() {
-        // cout << activeIndex << endl;
-        trees[activeIndex].DrawMesh();
     }
