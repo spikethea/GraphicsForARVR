@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="GraphicsForARVR.vcxproj" />
+  <Project Path="GraphicsForARVR.vcxproj" Id="877c633b-edf8-4299-88a3-02ca6b85166c" />
 </Solution>
