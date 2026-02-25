@@ -10,7 +10,7 @@
 
 class App {
 public:
-    Mesh mesh;
+    std::vector<Mesh> meshes;
     int activeIndex = 0;
 
 	GUI gui;

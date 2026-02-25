@@ -19,7 +19,7 @@ void GUI::init(GLFWwindow* window) {
     ImGui_ImplOpenGL3_Init("#version 330");
 }
 
-void GUI::draw(int& activeIndex, std::vector<Mesh>& trees) {
+void GUI::draw(int& activeIndex, std::vector<Mesh>& meshes) {
     // shorten deeply nested variable
     //auto& iterations = trees[activeIndex].lSystem.iterations;
 

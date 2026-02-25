@@ -12,7 +12,9 @@
 
     void App::release () {
         gui.cleanup();
-        mesh.release();
+        for (int i = 0; i < meshes.size(); i++) {
+            meshes[i].release();
+        }
 	}
 
 

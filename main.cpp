@@ -249,7 +249,7 @@ int main(void)
            /*Code To print First Square*/
            // 2. use our shader program when we want to render an object
 
-           
+		   app.gui.draw(app.activeIndex, app.meshes);
 
 		   renderer.Draw(mesh, cubeTransform, camera);
                
