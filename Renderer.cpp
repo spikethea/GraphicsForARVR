@@ -6,18 +6,29 @@ Renderer::Renderer(GLuint standardShader, GLuint curveShader)
 {
 	glUseProgram(m_StandardShader);
 	// Standard shader uniform locations
-    m_MVPLocation = glGetUniformLocation(m_StandardShader, "MVP");
-    m_ColorLocation = glGetUniformLocation(m_StandardShader, "uColor");
+    m_ModelCurveLoc = glGetUniformLocation(m_StandardShader, "model");
+    m_ViewCurveLoc = glGetUniformLocation(m_StandardShader, "view");
+    m_ProjectionCurveLoc = glGetUniformLocation(m_StandardShader, "projection");
+
+    std::cout << "Model loc: " << m_ModelCurveLoc << std::endl;
+    std::cout << "View loc: " << m_ViewCurveLoc << std::endl;
+    std::cout << "Projection loc: " << m_ProjectionCurveLoc << std::endl;
 
     // Curve shader uniform locations
 	glUseProgram(m_CurveShader);
 	m_ModelCurveLoc = glGetUniformLocation(m_CurveShader, "model");
     m_ViewCurveLoc = glGetUniformLocation(m_CurveShader, "view");
     m_ProjectionCurveLoc = glGetUniformLocation(m_CurveShader, "projection");
+    m_ColorCurveLoc = glGetUniformLocation(m_CurveShader, "uColor");
 
     // Optional: one-time curve uniforms
     glUniform1f(glGetUniformLocation(m_CurveShader, "segmentCount"), 40);
     glUniform1f(glGetUniformLocation(m_CurveShader, "stripCount"), 1);
+
+    std::cout << "Model loc: " << m_ModelCurveLoc << std::endl;
+    std::cout << "View loc: " << m_ViewCurveLoc << std::endl;
+    std::cout << "Projection loc: " << m_ProjectionCurveLoc << std::endl;
+    std::cout << "Color loc: " << m_ColorCurveLoc << std::endl;
 
 }
 
@@ -34,16 +45,24 @@ void Renderer::Draw(
     glm::mat4 view = camera.GetViewMatrix();
     glm::mat4 projection = camera.GetProjectionMatrix();
 
-    glm::mat4 mvp = projection * view * model;
-
-
 
     glUniformMatrix4fv(
-        m_MVPLocation,
+        m_ModelCurveLoc,
         1,
         GL_FALSE,
-        glm::value_ptr(mvp)
-    );
+        glm::value_ptr(model));
+
+    glUniformMatrix4fv(
+        m_ViewCurveLoc,
+        1,
+        GL_FALSE,
+        glm::value_ptr(view));
+
+    glUniformMatrix4fv(
+        m_ProjectionCurveLoc,
+        1,
+        GL_FALSE,
+        glm::value_ptr(projection));
 
     //drawing the mesh
     mesh.DrawMesh();
@@ -78,7 +97,7 @@ void Renderer::DrawCurve(const CurveMesh& curveMesh, const Transform& transform,
         glm::value_ptr(projection));
 
 	glUniform4fv(
-        m_ColorLocation,
+        m_ColorCurveLoc,
         1,
         glm::value_ptr(color));
 

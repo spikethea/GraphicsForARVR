@@ -65,10 +65,10 @@ void CurveMesh::build(const std::vector<glm::vec3>& controlPoints)
 
 void CurveMesh::Draw() const
 {
-    glBindVertexArray(VAO);
-
     // Tell OpenGL how many vertices per patch
     glPatchParameteri(GL_PATCH_VERTICES, 4);
+
+    glBindVertexArray(VAO);
 
     glDrawArrays(GL_PATCHES, 0, 4);
 

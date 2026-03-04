@@ -48,4 +48,5 @@ private:
     GLint m_ModelCurveLoc;
     GLint m_ViewCurveLoc;
     GLint m_ProjectionCurveLoc;
+    GLint m_ColorCurveLoc;
 };

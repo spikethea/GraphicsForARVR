@@ -2,6 +2,7 @@
 #include "curve.h"
 #include "shader.h"
 #include "curveMesh.h"
+#include <filesystem>
 // Do not include imgui loader.h!
 
 using namespace std;
@@ -38,7 +39,7 @@ int main(void)
 
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 
@@ -79,17 +80,17 @@ int main(void)
 
    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-//    // Created vertices for buffer object
-//    float vertices[] = {
-//        // first triangle
-//        -0.5f, -0.5f, 0.0f,
-//        0.5f, -0.5f, 0.0f,
-//        0.0f,  0.5f, 0.0f,
-//        // second triangle
-//        0.5f, -0.5f, 0.0f,  // bottom right
-//        -0.5f, -0.5f, 0.0f,  // bottom left
-//        -0.5f,  0.5f, 0.0f   // top left
-//    };
+    // Created vertices for buffer object
+    float vertices[] = {
+        // first triangle
+        -0.5f, -0.5f, 0.0f,
+        0.5f, -0.5f, 0.0f,
+        0.0f,  0.5f, 0.0f,
+        // second triangle
+        0.5f, -0.5f, 0.0f,  // bottom right
+        -0.5f, -0.5f, 0.0f,  // bottom left
+        -0.5f,  0.5f, 0.0f   // top left
+    };
 
  // SCENE
 
@@ -99,8 +100,6 @@ int main(void)
    glEnable(GL_CULL_FACE);
    glCullFace(GL_BACK);
 
-   // Set the number of vertices per patch for tessellation
-   glPatchParameteri(GL_PATCH_VERTICES, 4);
 
    // Created vertex for element buffer object
    float firstSquare[] = {
@@ -115,32 +114,6 @@ int main(void)
    };
 
 
-   // VAO, VBOs and EBOs Array for the number of objects in the scene.
-   unsigned int VBOs[2], VAOs[2], EBOs[2];
-   glGenVertexArrays(2, VAOs); 
-   glGenBuffers(2, VBOs);
-   glGenBuffers(2, EBOs);
-
-
-   
-// First Square
-
-    //Bind Vertex array object
-    glBindVertexArray(VAOs[0]);
-    // 0. copy our vertices array in a buffer for OpenGL to use
-    glBindBuffer(GL_ARRAY_BUFFER, VBOs[0]);
-    // Linking Vertex Attributes location = 0, vec3
-    glBufferData(GL_ARRAY_BUFFER, sizeof(firstSquare), firstSquare, GL_STATIC_DRAW);
-
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBOs[0]);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(firstSquareIndices), firstSquareIndices, GL_STATIC_DRAW);
-
-    // 1. then set the vertex attributes pointers
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
-    glBindVertexArray(0);
-
-
    
 
 
@@ -148,6 +121,9 @@ int main(void)
 
 
        // Curve Shader
+
+        std::cout << "Current working directory: "
+            << std::filesystem::current_path() << std::endl;
 
        util::shaderFilePathBundle standardPaths;
        standardPaths.vertex = "shaders/vertex.txt";
@@ -183,7 +159,7 @@ int main(void)
 	   mesh.lines = vector<float>(begin(firstSquare), end(firstSquare));
 	   mesh.indices = vector<unsigned int>(begin(firstSquareIndices), end(firstSquareIndices));
 	   mesh.uploadMeshToGPU();
-
+       
        Transform cubeTransform;
 
        cubeTransform.Position = { 0.0f, 0.0f, 0.0f };
@@ -208,6 +184,8 @@ int main(void)
        CurveMesh curveMesh;
        curveMesh.init();
 	   curveMesh.build(controlPoints);
+
+
        
 // RENDER LOOP
        /* Loop until the user closes the window */
@@ -237,7 +215,7 @@ int main(void)
                curveMesh,
                curveTransform,
                camera,
-               glm::vec4(0.3f, 1.f, 0.3f, 1.0f));
+               glm::vec4(0.1f, 1.f, 0.1f, 1.0f));
 
            //Draw UI
            app.gui.UIrender();
@@ -249,9 +227,6 @@ int main(void)
    
    // optional: de-allocate all resources once they've outlived their purpose:
    // ------------------------------------------------------------------------
-   glDeleteVertexArrays(2, VAOs);
-   glDeleteBuffers(2, VBOs);
-   glDeleteBuffers(2, EBOs);
    app.release();
 
 

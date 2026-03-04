@@ -37,14 +37,14 @@ unsigned int util::load_shader(const shaderFilePathBundle& filepaths) {
 	// check link was successful
 	int  linkSuccess;
 	char linkInfoLog[1024];
-	glGetShaderiv(shader, GL_LINK_STATUS, &linkSuccess);
+	glGetProgramiv(shader, GL_LINK_STATUS, &linkSuccess);
 
 	if (!linkSuccess)
 	{
-		glGetShaderInfoLog(shader, 512, NULL, linkInfoLog);
+		glGetProgramInfoLog(shader, 512, NULL, linkInfoLog);
 		std::cout << "ERROR::SHADER LINKING::LINKING_FAILED\n" << linkInfoLog << std::endl;
 	} else {
-		glGetShaderInfoLog(shader, 512, NULL, linkInfoLog);
+		glGetProgramInfoLog(shader, 512, NULL, linkInfoLog);
 		std::cout << "SHADER LINKING::SUCCESS\n" << linkInfoLog << std::endl;
 	}
 
@@ -55,6 +55,17 @@ unsigned int util::load_shader(const shaderFilePathBundle& filepaths) {
 	}
 
 	return shader;
+}
+
+const char* shaderTypeToString(GLenum type) {
+	switch (type) {
+	case GL_VERTEX_SHADER: return "VERTEX";
+	case GL_FRAGMENT_SHADER: return "FRAGMENT";
+	case GL_GEOMETRY_SHADER: return "GEOMETRY";
+	case GL_TESS_CONTROL_SHADER: return "TESS_CONTROL";
+	case GL_TESS_EVALUATION_SHADER: return "TESS_EVALUATION";
+	default: return "UNKNOWN";
+	}
 }
 
 unsigned int util::load_shader_module(const char* filepath, unsigned int type) {
@@ -70,6 +81,12 @@ unsigned int util::load_shader_module(const char* filepath, unsigned int type) {
 
 	std::string shaderSourceStr = bufferedLines.str();
 	const char* shaderSource = shaderSourceStr.c_str();
+
+	if (!fileReader.is_open()) {
+		std::cout << "ERROR::SHADER::FILE_NOT_FOUND " << filepath << std::endl;
+		return 0;
+	}
+
 	bufferedLines.str(std::string());
 	fileReader.close();
 
@@ -84,10 +101,10 @@ unsigned int util::load_shader_module(const char* filepath, unsigned int type) {
 
 	if (!success)
 	{
-		glGetShaderInfoLog(shaderModule, 512, NULL, infoLog);
-		std::cout << "ERROR::SHADER::COMPILATION_FAILED\n" << infoLog << std::endl;
+		glGetShaderInfoLog(shaderModule, 1024, NULL, infoLog);
+		std::cout << "ERROR::SHADER::" << shaderTypeToString(type) << "COMPILATION_FAILED\n" << infoLog << std::endl;
 	} else {
-		glGetShaderInfoLog(shaderModule, 512, NULL, infoLog);
+		glGetShaderInfoLog(shaderModule, 1024, NULL, infoLog);
 		std::cout << "SHADER::COMPILATION_SUCCESS\n" << infoLog << std::endl;
 	}
 
