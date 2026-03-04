@@ -14,11 +14,12 @@
 #include "Transform.h"
 
 #include "Mesh.h"
+#include "curveMesh.h"
 
 class Renderer
 {
 public:
-    Renderer(GLuint shader);
+    Renderer(GLuint shader, GLuint curveShader);
 
 
     void Draw(
@@ -27,12 +28,24 @@ public:
     const Camera& camera
     );
 
+    void DrawCurve(
+        const CurveMesh& curveMesh,
+        const Transform& transform,
+        const Camera& camera,
+        const glm::vec4& color
+    );
+
 private:
-    GLuint m_Shader = 0;
+    GLuint m_StandardShader;
+    GLuint m_CurveShader;
 
-    glm::mat4 m_Projection = glm::mat4(1.0f);
-    glm::mat4 m_View = glm::mat4(1.0f);
+    
 
-    GLint m_MVPLocation = -1;
-    GLint m_ColorLocation = -1;
+    GLint m_MVPLocation;
+	GLint m_ColorLocation;
+
+    // curve shader locations
+    GLint m_ModelCurveLoc;
+    GLint m_ViewCurveLoc;
+    GLint m_ProjectionCurveLoc;
 };

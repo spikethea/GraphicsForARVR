@@ -1,5 +1,7 @@
 #pragma once
 #include "main.h"
+#include <fstream>
+#include <sstream>
 
 namespace util {
 	struct shaderFilePathBundle {
@@ -10,5 +12,5 @@ namespace util {
 		const char* fragment;
 	};
 	unsigned int load_shader(const shaderFilePathBundle& filepaths);
-	unsigned int load_shader_module(const char* vertexPath, const char* geometryPath, const char* tcsPath, const char* tesPath, const char* fragmentPath);
+	unsigned int load_shader_module(const char* filePath, unsigned int type);
 }

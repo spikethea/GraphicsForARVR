@@ -1,4 +1,7 @@
 #include "main.h"
+#include "curve.h"
+#include "shader.h"
+#include "curveMesh.h"
 // Do not include imgui loader.h!
 
 using namespace std;
@@ -141,84 +144,38 @@ int main(void)
    
 
 
-       // SHADERS
-       const char *vertexShaderSource = "#version 330 core\n"
-           "layout (location = 0) in vec3 aPos;\n"
-           "void main()\n"
-           "{\n"
-           "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-       "}\0";
-
-       const char *fragmentShaderSource = "#version 330 core\n"
-           "out vec4 FragColor;\n"
-           "void main()\n"
-           "{\n"
-           "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
-       "}\0";
-
-       
-
-       // initiate vertex shader
-       unsigned int vertexShader;
-       vertexShader = glCreateShader(GL_VERTEX_SHADER);
-
-       glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-       glCompileShader(vertexShader);
-
-       // check vertex compilation was successful
-       int  success;
-       char infoLog[512];
-       glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
-
-       if(!success)
-       {
-           glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-           std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
-       }
-
-       // initiate fragment shader and equivalent shader program
-       unsigned int fragmentShaderOrange = glCreateShader(GL_FRAGMENT_SHADER); // the first fragment shader that outputs the color orange
-       unsigned int shaderProgramOrange = glCreateProgram();
-       
-       // attach shader program to fragment shader & vertex shader
-       glShaderSource(fragmentShaderOrange, 1, &fragmentShaderSource, NULL);
-       glCompileShader(fragmentShaderOrange);
-       glAttachShader(shaderProgramOrange, vertexShader);
-       glAttachShader(shaderProgramOrange, fragmentShaderOrange);
-       
-       
-       glLinkProgram(shaderProgramOrange);
+// SHADERS
 
 
-       // COMPILE LOG CHECKS FOR SHADER TEST WORKING
-       // check vertex compilation was successful
-       int  fragmentSuccess;
-       char fragmentInfoLog[512];
-       glGetShaderiv(fragmentShaderOrange, GL_COMPILE_STATUS, &fragmentSuccess);
+       // Curve Shader
 
-       if(!fragmentSuccess)
-       {
-           glGetShaderInfoLog(vertexShader, 512, NULL, fragmentInfoLog);
-           std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << fragmentInfoLog << std::endl;
-       } else {
-           glGetShaderInfoLog(vertexShader, 512, NULL, fragmentInfoLog);
-           std::cout << "SHADER::FRAGMENT::SUCCESS\n" << fragmentInfoLog << std::endl;
-       }
+       util::shaderFilePathBundle standardPaths;
+       standardPaths.vertex = "shaders/vertex.txt";
+       standardPaths.geometry = nullptr;
+       standardPaths.tcs = nullptr;
+       standardPaths.tes = nullptr;
+       standardPaths.fragment = "shaders/fragment.txt";
+
+       GLuint standardShader = util::load_shader(standardPaths);
 
 
+       util::shaderFilePathBundle curvePaths;
+       curvePaths.vertex = "shaders/curve_vertex.txt";
+       curvePaths.geometry = nullptr;
+       curvePaths.tcs = "shaders/curve_tesselation-control.txt";
+       curvePaths.tes = "shaders/curve_tesselation-evaluation.txt";
+       curvePaths.fragment = "shaders/curve_fragment.txt";
 
-       // Remove from memory as we dont need the shader object(s) once weve linked in the the program
-       glDeleteShader(vertexShader);
-       glDeleteShader(fragmentShaderOrange);
-
-       app.gui.init(window);
+       GLuint curveShader = util::load_shader(curvePaths);
 
 //SCENE OBJECTS
 
-       Renderer renderer(shaderProgramOrange);
+       Renderer renderer(standardShader, curveShader);
        Camera camera;
 
        camera.Position = { 0.0f, 0.0f, 3.0f };
+
+	   // Create Cube Mesh
 
        Mesh mesh;
 
@@ -231,6 +188,26 @@ int main(void)
 
        cubeTransform.Position = { 0.0f, 0.0f, 0.0f };
        cubeTransform.Scale = { 0.5f, 0.5f, 0.5f };
+
+	   //Create Curve Mesh
+
+       std::vector<glm::vec3> controlPoints = { {
+           glm::vec3(0.5f, 0.0f, 0.5f),
+           glm::vec3(-0.5f, 0.5f, 0.7f),
+           glm::vec3(0.5f, -0.5f, 0.9f),
+           glm::vec3(0.0f, 0.0f, 1.1f)
+       } };
+
+       Transform curveTransform;
+
+       curveTransform.Position = { 0.0f, 0.0f, 0.0f };
+       curveTransform.Scale = { 0.5f, 0.5f, 0.5f };
+
+	   Curve curve(controlPoints, glm::vec4(1.0f, 0.0f, 0.0f, 1.0f));
+
+       CurveMesh curveMesh;
+       curveMesh.init();
+	   curveMesh.build(controlPoints);
        
 // RENDER LOOP
        /* Loop until the user closes the window */
@@ -251,16 +228,18 @@ int main(void)
 
 		   app.gui.draw(app.activeIndex, app.meshes);
 
+		   /* Draw Cube Mesh*/
 		   renderer.Draw(mesh, cubeTransform, camera);
-               
-           //// 3. now draw the object
-           glBindVertexArray(VAOs[0]); // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
 
-           glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+           /* Draw Curve Mesh*/
 
-           mesh.DrawMesh();
+           renderer.DrawCurve(
+               curveMesh,
+               curveTransform,
+               camera,
+               glm::vec4(0.3f, 1.f, 0.3f, 1.0f));
 
-		   // UI NOT WORKING ATM
+           //Draw UI
            app.gui.UIrender();
 
            /* Swap front and back buffers */
@@ -274,7 +253,6 @@ int main(void)
    glDeleteBuffers(2, VBOs);
    glDeleteBuffers(2, EBOs);
    app.release();
-   glDeleteProgram(shaderProgramOrange);
 
 
     glfwTerminate();

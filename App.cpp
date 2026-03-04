@@ -7,7 +7,7 @@
 
         // Set the key callback to our static wrapper
         glfwSetKeyCallback(window, keyCallback);
-        //gui.init(window);
+        gui.init(window);
     }
 
     void App::release () {
