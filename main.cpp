@@ -109,8 +109,8 @@ int main(void)
    -0.9f,  0.9f, 0.0f   // top left 
    };
    unsigned int firstSquareIndices[] = {  // note that we start from 0!
-       0, 1, 3,   // first triangle
-       1, 2, 3    // second triangle
+       3, 1, 0,   // first triangle
+       3, 2, 1   // second triangle
    };
 
 
@@ -149,7 +149,7 @@ int main(void)
        Renderer renderer(standardShader, curveShader);
        Camera camera;
 
-       camera.Position = { 0.0f, 0.0f, 3.0f };
+       camera.Position = { 0.0f, 0.0f, 50.0f };
 
 	   // Create Cube Mesh
 
@@ -162,8 +162,8 @@ int main(void)
        
        Transform cubeTransform;
 
-       cubeTransform.Position = { 0.0f, 0.0f, 0.0f };
-       cubeTransform.Scale = { 0.5f, 0.5f, 0.5f };
+       cubeTransform.Position = { 0.0f, 0.0f, 10.0f };
+       cubeTransform.Scale = { 5.5f, 5.5f, 5.5f };
 
 	   //Create Curve Mesh
 
@@ -208,6 +208,9 @@ int main(void)
 
 		   /* Draw Cube Mesh*/
 		   renderer.Draw(mesh, cubeTransform, camera);
+
+           camera.Rotation.y += 0.0001;
+           //camera.Rotation.x -= 0.0001;
 
            /* Draw Curve Mesh*/
 

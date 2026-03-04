@@ -12,7 +12,7 @@ public:
     float FarClip = 100.0f;
 
     glm::vec3 Position{ 0.0f, 0.0f, 0.0f };
-    glm::vec2 Rotation{ 0.0f }; // x = yaw, y = pitch
+    glm::vec2 Rotation{ 0.0f, 0.0f }; // x = yaw, y = pitch
 
     glm::mat4 GetViewMatrix() const;
     glm::mat4 GetProjectionMatrix() const;

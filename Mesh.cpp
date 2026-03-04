@@ -93,7 +93,7 @@ using namespace std;
         //std::cout << "Currently bound VAO: " << vaoID << std::endl;
         glBindVertexArray(VAO);
         if (!indices.empty()) {
-            glDrawElements(GL_LINES, indices.size(), GL_UNSIGNED_INT, 0);
+            glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
         }
         else
             cout << "No Indices to draw!" << endl;

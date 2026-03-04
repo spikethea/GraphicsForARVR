@@ -6,13 +6,13 @@ Renderer::Renderer(GLuint standardShader, GLuint curveShader)
 {
 	glUseProgram(m_StandardShader);
 	// Standard shader uniform locations
-    m_ModelCurveLoc = glGetUniformLocation(m_StandardShader, "model");
-    m_ViewCurveLoc = glGetUniformLocation(m_StandardShader, "view");
-    m_ProjectionCurveLoc = glGetUniformLocation(m_StandardShader, "projection");
+    m_ModelLoc = glGetUniformLocation(m_StandardShader, "model");
+    m_ViewLoc = glGetUniformLocation(m_StandardShader, "view");
+    m_ProjectionLoc = glGetUniformLocation(m_StandardShader, "projection");
 
-    std::cout << "Model loc: " << m_ModelCurveLoc << std::endl;
-    std::cout << "View loc: " << m_ViewCurveLoc << std::endl;
-    std::cout << "Projection loc: " << m_ProjectionCurveLoc << std::endl;
+    std::cout << "Model loc: " << m_ModelLoc << std::endl;
+    std::cout << "View loc: " << m_ViewLoc << std::endl;
+    std::cout << "Projection loc: " << m_ProjectionLoc << std::endl;
 
     // Curve shader uniform locations
 	glUseProgram(m_CurveShader);
@@ -47,19 +47,19 @@ void Renderer::Draw(
 
 
     glUniformMatrix4fv(
-        m_ModelCurveLoc,
+        m_ModelLoc,
         1,
         GL_FALSE,
         glm::value_ptr(model));
 
     glUniformMatrix4fv(
-        m_ViewCurveLoc,
+        m_ViewLoc,
         1,
         GL_FALSE,
         glm::value_ptr(view));
 
     glUniformMatrix4fv(
-        m_ProjectionCurveLoc,
+        m_ProjectionLoc,
         1,
         GL_FALSE,
         glm::value_ptr(projection));

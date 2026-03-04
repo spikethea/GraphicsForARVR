@@ -41,7 +41,9 @@ private:
 
     
 
-    GLint m_MVPLocation;
+    GLint m_ModelLoc;
+    GLint m_ViewLoc;
+    GLint m_ProjectionLoc;
 	GLint m_ColorLocation;
 
     // curve shader locations
