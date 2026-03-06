@@ -126,21 +126,21 @@ int main(void)
             << std::filesystem::current_path() << std::endl;
 
        util::shaderFilePathBundle standardPaths;
-       standardPaths.vertex = "shaders/vertex.txt";
+       standardPaths.vertex = "shaders/vertex.glsl";
        standardPaths.geometry = nullptr;
        standardPaths.tcs = nullptr;
        standardPaths.tes = nullptr;
-       standardPaths.fragment = "shaders/fragment.txt";
+       standardPaths.fragment = "shaders/fragment.glsl";
 
        GLuint standardShader = util::load_shader(standardPaths);
 
 
        util::shaderFilePathBundle curvePaths;
-       curvePaths.vertex = "shaders/curve_vertex.txt";
+       curvePaths.vertex = "shaders/curve_vertex.glsl";
        curvePaths.geometry = nullptr;
-       curvePaths.tcs = "shaders/curve_tesselation-control.txt";
-       curvePaths.tes = "shaders/curve_tesselation-evaluation.txt";
-       curvePaths.fragment = "shaders/curve_fragment.txt";
+       curvePaths.tcs = "shaders/curve_tesselation-control.glsl";
+       curvePaths.tes = "shaders/curve_tesselation-evaluation.glsl";
+       curvePaths.fragment = "shaders/curve_fragment.glsl";
 
        GLuint curveShader = util::load_shader(curvePaths);
 
@@ -214,11 +214,34 @@ int main(void)
 
            /* Draw Curve Mesh*/
 
+           float bezier[16] = {
+            -1, 3,-3,1,
+             3,-6, 3,0,
+            -3, 3, 0,0,
+             1, 0, 0,0
+           };
+
+           float hermite[16] = {
+             2,-2, 1, 1,
+            -3, 3,-2,-1,
+             0, 0, 1, 0,
+             1, 0, 0, 0
+           };
+
+           float bspline[16] = {
+            -1.0 / 6,  3.0 / 6,-3.0 / 6,1.0 / 6,
+             3.0 / 6, -6.0 / 6, 3.0 / 6,0,
+            -3.0 / 6,  0,     3.0 / 6,0,
+             1.0 / 6,  4.0 / 6, 1.0 / 6,0
+           };
+
            renderer.DrawCurve(
                curveMesh,
                curveTransform,
                camera,
-               glm::vec4(0.1f, 1.f, 0.1f, 1.0f));
+               glm::vec4(0.1f, 1.f, 0.1f, 1.0f),
+               bspline
+           );
 
            //Draw UI
            app.gui.UIrender();

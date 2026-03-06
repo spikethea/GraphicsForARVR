@@ -162,13 +162,13 @@
     <ClCompile Include="ShaderLoader.cpp" />
     <ClCompile Include="ShaderLoader.h.cpp" />
     <ClCompile Include="Transform.cpp" />
-    <Text Include="shaders\curve_fragment.txt" />
-    <Text Include="shaders\curve_tesselation-control.txt" />
-    <Text Include="shaders\curve_tesselation-evaluation.txt" />
-    <Text Include="shaders\curve_vertex.txt" />
-    <Text Include="shaders\fragment.txt" />
-    <Text Include="shaders\test.txt" />
-    <Text Include="shaders\vertex.txt" />
+    <Text Include="shaders\curve_fragment.glsl" />
+    <Text Include="shaders\curve_tesselation-control.glsl" />
+    <Text Include="shaders\curve_tesselation-evaluation.glsl" />
+    <Text Include="shaders\curve_vertex.glsl" />
+    <Text Include="shaders\fragment.glsl" />
+    <Text Include="shaders\test.glsl" />
+    <Text Include="shaders\vertex.glsl" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />

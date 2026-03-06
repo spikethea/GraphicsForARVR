@@ -23,16 +23,17 @@ public:
 
 
     void Draw(
-    const Mesh& mesh,
-    const Transform& transform,
-    const Camera& camera
+        const Mesh& mesh,
+        const Transform& transform,
+        const Camera& camera
     );
 
     void DrawCurve(
         const CurveMesh& curveMesh,
         const Transform& transform,
         const Camera& camera,
-        const glm::vec4& color
+        const glm::vec4& color,
+        const float curve[16]
     );
 
 private:
@@ -51,4 +52,5 @@ private:
     GLint m_ViewCurveLoc;
     GLint m_ProjectionCurveLoc;
     GLint m_ColorCurveLoc;
+    GLint basisLoc;
 };

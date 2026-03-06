@@ -81,9 +81,6 @@
     <ClCompile Include="shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fragment.txt">
-      <Filter>Source Files\shaders</Filter>
-    </ClCompile>
     <ClCompile Include="curve.cpp">
       <Filter>Source Files\models</Filter>
     </ClCompile>
@@ -160,20 +157,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="curve_vertex.txt">
-      <Filter>Source Files\shaders</Filter>
-    </Text>
-    <Text Include="curve_tesselation-control.txt">
-      <Filter>Source Files\shaders</Filter>
-    </Text>
-    <Text Include="curve_tesselation-evaluation.txt">
-      <Filter>Source Files\shaders</Filter>
-    </Text>
-    <Text Include="curve_fragment.txt">
-      <Filter>Source Files\shaders</Filter>
-    </Text>
-    <Text Include="vertex.txt">
-      <Filter>Source Files\shaders</Filter>
-    </Text>
+    <Text Include="shaders\curve_fragment.glsl" />
+    <Text Include="shaders\curve_tesselation-control.glsl" />
+    <Text Include="shaders\curve_tesselation-evaluation.glsl" />
+    <Text Include="shaders\curve_vertex.glsl" />
+    <Text Include="shaders\fragment.glsl" />
+    <Text Include="shaders\test.glsl" />
+    <Text Include="shaders\vertex.glsl" />
   </ItemGroup>
 </Project>

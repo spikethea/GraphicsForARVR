@@ -1,5 +1,12 @@
 #include "Renderer.h"
 
+float bezier[16] = {
+-1, 3,-3,1,
+ 3,-6, 3,0,
+-3, 3, 0,0,
+ 1, 0, 0,0
+};
+
 Renderer::Renderer(GLuint standardShader, GLuint curveShader)
     : m_StandardShader(standardShader),
 	m_CurveShader(curveShader)
@@ -20,6 +27,11 @@ Renderer::Renderer(GLuint standardShader, GLuint curveShader)
     m_ViewCurveLoc = glGetUniformLocation(m_CurveShader, "view");
     m_ProjectionCurveLoc = glGetUniformLocation(m_CurveShader, "projection");
     m_ColorCurveLoc = glGetUniformLocation(m_CurveShader, "uColor");
+    // Curve Shader Basis uniform locations
+    basisLoc = glGetUniformLocation(m_CurveShader, "basis");
+
+    if (basisLoc == -1)
+        std::cout << "basis uniform not found\n";
 
     // Optional: one-time curve uniforms
     glUniform1f(glGetUniformLocation(m_CurveShader, "segmentCount"), 40);
@@ -68,7 +80,7 @@ void Renderer::Draw(
     mesh.DrawMesh();
 }
 
-void Renderer::DrawCurve(const CurveMesh& curveMesh, const Transform& transform, const Camera& camera, const glm::vec4& color)
+void Renderer::DrawCurve(const CurveMesh& curveMesh, const Transform& transform, const Camera& camera, const glm::vec4& color, const float curve[16])
 {
     glUseProgram(m_CurveShader);
 
@@ -95,6 +107,13 @@ void Renderer::DrawCurve(const CurveMesh& curveMesh, const Transform& transform,
         1,
         GL_FALSE,
         glm::value_ptr(projection));
+
+    glUniformMatrix4fv(
+        basisLoc,
+        1,
+        GL_FALSE,
+        curve
+    );
 
 	glUniform4fv(
         m_ColorCurveLoc,
