@@ -149,7 +149,7 @@ int main(void)
        Renderer renderer(standardShader, curveShader);
        Camera camera;
 
-       camera.Position = { 0.0f, 0.0f, 50.0f };
+       camera.Position = { 0.0f, 0.0f, 10.0f };
 
 	   // Create Cube Mesh
 
@@ -162,7 +162,7 @@ int main(void)
        
        Transform cubeTransform;
 
-       cubeTransform.Position = { 0.0f, 0.0f, 10.0f };
+       cubeTransform.Position = { 0.0f, 0.0f, 0.0f };
        cubeTransform.Scale = { 5.5f, 5.5f, 5.5f };
 
 	   //Create Curve Mesh
@@ -176,7 +176,7 @@ int main(void)
 
        Transform curveTransform;
 
-       curveTransform.Position = { 0.0f, 0.0f, 0.0f };
+       curveTransform.Position = { 0.0f, 0.0f, 10.0f };
        curveTransform.Scale = { 0.5f, 0.5f, 0.5f };
 
 	   Curve curve(controlPoints, glm::vec4(1.0f, 0.0f, 0.0f, 1.0f));
@@ -209,7 +209,7 @@ int main(void)
 		   /* Draw Cube Mesh*/
 		   renderer.Draw(mesh, cubeTransform, camera);
 
-           camera.Rotation.y += 0.0001;
+           //camera.Rotation.y += 0.0001;
            //camera.Rotation.x -= 0.0001;
 
            /* Draw Curve Mesh*/
