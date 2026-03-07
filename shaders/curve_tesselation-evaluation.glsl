@@ -12,6 +12,9 @@ void main()
 {
 
 	float t = gl_TessCoord.x;
+	
+	// The parameter vector for all cubic curves
+	vec4 T = vec4(t*t*t, t*t, t, 1.0);
 
 	//points
 	vec3 p0 = gl_in[0].gl_Position.xyz;
@@ -26,8 +29,7 @@ void main()
 		vec4(p3,0.0)
 	);
 
-	// The parameter vector for all cubic curves
-	vec4 T = vec4(t*t*t, t*t, t, 1.0);
+
 
 	// curve evaluation
 	vec4 result = G * basis * T;

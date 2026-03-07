@@ -3,6 +3,7 @@
 #include "shader.h"
 #include "curveMesh.h"
 #include <filesystem>
+#include <stack>
 // Do not include imgui loader.h!
 
 using namespace std;
@@ -18,6 +19,42 @@ void processInput(GLFWwindow *window)
 {
    if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
        glfwSetWindowShouldClose(window, true);
+}
+
+glm::vec3 EvaluateBezier(
+    const glm::vec3& P0,
+    const glm::vec3& P1,
+    const glm::vec3& P2,
+    const glm::vec3& P3,
+    float t)
+{
+    float u = 1.0f - t;
+
+    float b0 = u * u * u;
+    float b1 = 3 * u * u * t;
+    float b2 = 3 * u * t * t;
+    float b3 = t * t * t;
+
+    return b0 * P0 +
+        b1 * P1 +
+        b2 * P2 +
+        b3 * P3;
+}
+
+// evaluate the tangent of the leaf curve
+glm::vec3 BezierTangent(
+    const glm::vec3& P0,
+    const glm::vec3& P1,
+    const glm::vec3& P2,
+    const glm::vec3& P3,
+    float t)
+{
+    float u = 1.0f - t;
+
+    return
+        3.0f * u * u * (P1 - P0) +
+        6.0f * u * t * (P2 - P1) +
+        3.0f * t * t * (P3 - P2);
 }
 
 //void CreateTesselationShader() {
@@ -165,19 +202,119 @@ int main(void)
        cubeTransform.Position = { 0.0f, 0.0f, 0.0f };
        cubeTransform.Scale = { 5.5f, 5.5f, 5.5f };
 
-	   //Create Curve Mesh
+	   //Create Palm Tree Trunk Curve Mesh
 
        std::vector<glm::vec3> controlPoints = { {
-           glm::vec3(0.5f, 0.0f, 0.5f),
-           glm::vec3(-0.5f, 0.5f, 0.7f),
-           glm::vec3(0.5f, -0.5f, 0.9f),
-           glm::vec3(0.0f, 0.0f, 1.1f)
+           glm::vec3(0.0f, 0.0f, 0.5f),
+           glm::vec3(1.0f, 2.0f, 0.7f),
+           glm::vec3(3.5f, 3.5f, 0.9f),
+           glm::vec3(3.5f, 5.0f, 1.1f)
        } };
+
+       glm::vec3 endPoint = controlPoints[1];
+
+       // Palm Leaves
+
+       Transform palmCrown;
+       palmCrown.Position = endPoint;
+       std::cout <<
+           "x: " << palmCrown.Position.x <<
+           "y: " << palmCrown.Position.y <<
+           "z: " << palmCrown.Position.z <<
+           std::endl;
+       palmCrown.Scale = { 1.0f, 1.0f, 1.0f };
+
+       std::vector<CurveMesh> leaves;
+
+       std::vector <std::vector<CurveMesh>> leaflets;
+       std::vector < std::vector<Transform>> leafletTransforms;
+
+       int numLeaves = 7;
+       int numLeaflets = 8;
+       float radius = 1.5f;
+
+       leaves.reserve(numLeaves);
+
+       for (int i = 0; i < numLeaves; i++)
+       {
+           float angle = (float)i / (float)numLeaves * 2.0f * M_PI;
+
+           float x = cos(angle) * radius;
+           float z = sin(angle) * radius;
+
+           std::vector<glm::vec3> leafcontrolPoints = { {
+               glm::vec3(0.0f, 0.0f, 0.0f),// origin
+               glm::vec3(x*0.5, 0.7f, z*0.7f),
+               glm::vec3(x*0.5f, 1.3f, z*0.9f),
+               glm::vec3(x*1.0f, 0.7f, z*1.1f) //endpoint
+            } };
+
+           
+           leaves.emplace_back();
+           leaves.back().build(leafcontrolPoints);
+
+           //Leaflets Memory reserve
+           leaflets.push_back({});
+           leaflets.back().reserve(numLeaflets);
+           leafletTransforms.push_back({});
+           leafletTransforms.back().reserve(numLeaflets);
+
+           
+
+           for (int j = 0; j < numLeaflets; j++)
+           {
+               float t = (float)j / (numLeaflets - 1);
+
+			   cout << "t: " << t << endl;
+
+               glm::vec3 leafletStart = EvaluateBezier(
+                   leafcontrolPoints[0],
+                   leafcontrolPoints[1],
+                   leafcontrolPoints[2],
+                   leafcontrolPoints[3],
+                   t
+               );
+
+               // find the tangent
+               glm::vec3 tangent = glm::normalize(BezierTangent(
+                   leafcontrolPoints[0],
+                   leafcontrolPoints[1],
+                   leafcontrolPoints[2],
+                   leafcontrolPoints[3],
+                   t
+               ));
+
+               glm::vec3 up = glm::vec3(0, 1, 0);
+
+               glm::vec3 binormal = glm::normalize(glm::cross(up, tangent));
+               glm::vec3 normal = glm::normalize(glm::cross(tangent, binormal));
+
+
+               Transform transform;
+               transform.Position = endPoint + leafletStart;
+               transform.Rotation = binormal;
+               transform.Scale = { 0.5f, 0.5f, 0.5f };
+               leafletTransforms[i].emplace_back(transform);
+
+               std::vector<glm::vec3> leafletControlPoints = { {
+                   glm::vec3(-0.5, -0.7f, -0.7f),
+                   glm::vec3(0.0f, 0.0f, 0.0f),// origin (using B-Splin)
+                   glm::vec3(0.5f, 1.3f,  0.9f),
+                   glm::vec3(1.0f, 0.7f, 1.1f) //endpoint
+            } };
+
+                leaflets[i].emplace_back();
+                leaflets[i].back().build(leafletControlPoints);
+
+
+           }
+
+       }
 
        Transform curveTransform;
 
-       curveTransform.Position = { 0.0f, 0.0f, 10.0f };
-       curveTransform.Scale = { 0.5f, 0.5f, 0.5f };
+       curveTransform.Position = { 0.0f, 0.0f, 0.0f };
+       curveTransform.Scale = { 1.0f, 1.0f, 1.0f };
 
 	   Curve curve(controlPoints, glm::vec4(1.0f, 0.0f, 0.0f, 1.0f));
 
@@ -198,7 +335,7 @@ int main(void)
            glfwPollEvents();
 
            /* Render here */
-           glClearColor(0.2f, 0.3f, 0.3f, 1.0f); // background color
+           glClearColor(0.2f, 0.4f, 0.7f, 1.0f); // background color
            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
            /*Code To print First Square*/
@@ -239,9 +376,64 @@ int main(void)
                curveMesh,
                curveTransform,
                camera,
-               glm::vec4(0.1f, 1.f, 0.1f, 1.0f),
-               bspline
+               glm::vec4(0.709f, 0.39f, 0.1f, 1.0f),
+               hermite
            );
+
+           for (const CurveMesh& leaf : leaves) {
+               renderer.DrawCurve(
+                   leaf,
+                   palmCrown,
+                   camera,
+                   glm::vec4(0.2f, 1.0f, 0.2f, 1.0f),
+                   bezier
+               );
+
+               for (const std::vector<CurveMesh>& leafletStem : leaflets) {
+                   for (const CurveMesh& leaflet : leafletStem) {
+
+
+
+                       for (int i = 0; i < leaves.size(); i++) {
+                           for (int j = 0; j < leaflets.size(); j++) {
+
+                               Transform transform = leafletTransforms[i][j];
+                               
+                               //Left Leaflets
+                               renderer.DrawCurve(
+                                   leaflet,
+                                   transform,
+                                   camera,
+                                   glm::vec4(0.1f, 0.7f, 0.1f, 1.0f),
+                                   bspline
+                               );
+
+                                //Right Leaflets
+
+                               Transform flippedTransform = leafletTransforms[i][j];
+
+                               glm::vec3 up = glm::vec3(0, 1, 0);
+
+							   // Flip the binormal to get the opposite side of the leaf
+                               flippedTransform.Rotation = glm::normalize(glm::cross(up, flippedTransform.Rotation));
+
+                                //Left Leaflets
+                                renderer.DrawCurve(
+                                    leaflet,
+                                    flippedTransform,
+                                    camera,
+                                    glm::vec4(0.1f, 0.7f, 0.1f, 1.0f),
+                                    bspline
+                                );
+
+                            }
+                       }
+                       
+
+
+                   }
+               }
+           }
 
            //Draw UI
            app.gui.UIrender();
