@@ -71,7 +71,6 @@ glm::vec3 BezierTangent(
 
 int main(void)
 {
-    std::cout << "Hello World" << std::endl;
     GLFWwindow* window;
 
     glfwInit();
@@ -143,7 +142,7 @@ int main(void)
     0.1f,  0.1f, 0.0f,  // top right
     0.1f, -0.9f, 0.0f,  // bottom right
    -0.9f, -0.9f, 0.0f,  // bottom left
-   -0.9f,  0.9f, 0.0f   // top left 
+   -4.9f,  15.9f, 0.0f   // top left 
    };
    unsigned int firstSquareIndices[] = {  // note that we start from 0!
        3, 1, 0,   // first triangle
@@ -159,8 +158,6 @@ int main(void)
 
        // Curve Shader
 
-        std::cout << "Current working directory: "
-            << std::filesystem::current_path() << std::endl;
 
        util::shaderFilePathBundle standardPaths;
        standardPaths.vertex = "shaders/vertex.glsl";
@@ -199,32 +196,46 @@ int main(void)
        
        Transform cubeTransform;
 
-       cubeTransform.Position = { 0.0f, 0.0f, 0.0f };
-       cubeTransform.Scale = { 5.5f, 5.5f, 5.5f };
+       cubeTransform.Position = {-4.5f, 0.0f, -5.0f };
+       cubeTransform.Scale = { 35.5f, 15.5f, 15.5f };
+       cubeTransform.Rotation = { -1.0f, 0.0f, 0.0f };
 
 	   //Create Palm Tree Trunk Curve Mesh
 
-       std::vector<glm::vec3> controlPoints = { {
+       std::vector<glm::vec3> trunkControlPoints = { {
            glm::vec3(0.0f, 0.0f, 0.5f),
            glm::vec3(1.0f, 2.0f, 0.7f),
            glm::vec3(3.5f, 3.5f, 0.9f),
            glm::vec3(3.5f, 5.0f, 1.1f)
        } };
 
-       glm::vec3 endPoint = controlPoints[1];
+
+
+       std::vector<glm::vec3> lowerTrunkControlPoints = {
+          glm::vec3(-2.0f, -3.0f, 0.5f), // P0
+          trunkControlPoints[0],         // P1 (connect here)
+          glm::vec3(-1.5f, -0.5f, 0.7f), // T0
+          trunkControlPoints[2]          // T1 (match upper start tangent)
+       };
+
+       glm::vec3 endPoint = trunkControlPoints[1];
 
        // Palm Leaves
 
        Transform palmCrown;
        palmCrown.Position = endPoint;
-       std::cout <<
-           "x: " << palmCrown.Position.x <<
-           "y: " << palmCrown.Position.y <<
-           "z: " << palmCrown.Position.z <<
-           std::endl;
+       //std::cout <<
+       //    "x: " << palmCrown.Position.x <<
+       //    "y: " << palmCrown.Position.y <<
+       //    "z: " << palmCrown.Position.z <<
+       //    std::endl;
        palmCrown.Scale = { 1.0f, 1.0f, 1.0f };
 
        std::vector<CurveMesh> leaves;
+
+       glm::vec4 leafletColor = glm::vec4(0.2f, 1.0f, 0.2f, 1.0f);
+       glm::vec4 leafColor = glm::vec4(0.2f, 1.0f, 0.2f, 1.0f);
+       glm::vec4 trunkColor = glm::vec4(0.709f, 0.39f, 0.1f, 1.0f);
 
        std::vector <std::vector<CurveMesh>> leaflets;
        std::vector < std::vector<Transform>> leafletTransforms;
@@ -316,11 +327,18 @@ int main(void)
        curveTransform.Position = { 0.0f, 0.0f, 0.0f };
        curveTransform.Scale = { 1.0f, 1.0f, 1.0f };
 
-	   Curve curve(controlPoints, glm::vec4(1.0f, 0.0f, 0.0f, 1.0f));
-
        CurveMesh curveMesh;
        curveMesh.init();
-	   curveMesh.build(controlPoints);
+	   curveMesh.build(trunkControlPoints);
+
+       Transform lowercurveTransform;
+
+       lowercurveTransform.Position = { 0.0f, 0.0f, 0.0f };
+       lowercurveTransform.Scale = { 1.0f, 1.0f, 1.0f };
+
+       CurveMesh lowercurveMesh;
+       lowercurveMesh.init();
+       lowercurveMesh.build(lowerTrunkControlPoints);
 
 
        
@@ -346,11 +364,10 @@ int main(void)
 		   /* Draw Cube Mesh*/
 		   renderer.Draw(mesh, cubeTransform, camera);
 
-           //camera.Rotation.y += 0.0001;
-           //camera.Rotation.x -= 0.0001;
+       /* Draw Curve Meshes*/
 
-           /* Draw Curve Mesh*/
 
+		   // Basis matrices for curve types
            float bezier[16] = {
             -1, 3,-3,1,
              3,-6, 3,0,
@@ -372,68 +389,55 @@ int main(void)
              1.0 / 6,  4.0 / 6, 1.0 / 6,0
            };
 
+
+		   // Render the palm tree trunk curve (Hermite curves)
            renderer.DrawCurve(
                curveMesh,
                curveTransform,
                camera,
-               glm::vec4(0.709f, 0.39f, 0.1f, 1.0f),
+               trunkColor,
                hermite
            );
 
-           for (const CurveMesh& leaf : leaves) {
-               renderer.DrawCurve(
-                   leaf,
-                   palmCrown,
-                   camera,
-                   glm::vec4(0.2f, 1.0f, 0.2f, 1.0f),
-                   bezier
-               );
+           renderer.DrawCurve(
+               lowercurveMesh,
+               lowercurveTransform,
+               camera,
+               trunkColor,
+               hermite
+           );
 
-               for (const std::vector<CurveMesh>& leafletStem : leaflets) {
-                   for (const CurveMesh& leaflet : leafletStem) {
+               for (int i = 0; i < leaves.size(); i++)
+               {
+                   renderer.DrawCurve(leaves[i], palmCrown, camera, leafColor, bezier);
 
+                   for (int j = 0; j < leaflets[i].size(); j++)
+                   {
+                       CurveMesh& leaflet = leaflets[i][j];
 
+                       Transform transform = leafletTransforms[i][j];
 
-                       for (int i = 0; i < leaves.size(); i++) {
-                           for (int j = 0; j < leaflets.size(); j++) {
+                       renderer.DrawCurve(
+                           leaflet,
+                           transform,
+                           camera,
+                           glm::vec4(0.1f, 0.7f, 0.1f, 1.0f),
+                           bspline
+                       );
 
-                               Transform transform = leafletTransforms[i][j];
-                               
-                               //Left Leaflets
-                               renderer.DrawCurve(
-                                   leaflet,
-                                   transform,
-                                   camera,
-                                   glm::vec4(0.1f, 0.7f, 0.1f, 1.0f),
-                                   bspline
-                               );
+                       Transform flipped = transform;
+                       flipped.Scale.x *= -1;
 
-                                //Right Leaflets
-
-                               Transform flippedTransform = leafletTransforms[i][j];
-
-                               glm::vec3 up = glm::vec3(0, 1, 0);
-
-							   // Flip the binormal scale to get the opposite side of the leaf
-                               flippedTransform.Scale.x = -flippedTransform.Scale.x;
-
-                                //Left Leaflets
-                                renderer.DrawCurve(
-                                    leaflet,
-                                    flippedTransform,
-                                    camera,
-                                    glm::vec4(0.1f, 0.7f, 0.1f, 1.0f),
-                                    bspline
-                                );
-
-                            }
-                       }
-                       
-
-
+                       renderer.DrawCurve(
+                           leaflet,
+                           flipped,
+                           camera,
+                           glm::vec4(0.1f, 0.7f, 0.1f, 1.0f),
+                           bspline
+                       );
                    }
                }
-           }
+           
 
            //Draw UI
            app.gui.UIrender();
