@@ -34,7 +34,7 @@ Renderer::Renderer(GLuint standardShader, GLuint curveShader)
         std::cout << "basis uniform not found\n";
 
     // Optional: one-time curve uniforms
-    glUniform1f(glGetUniformLocation(m_CurveShader, "segmentCount"), 40);
+    glUniform1f(glGetUniformLocation(m_CurveShader, "segmentCount"), 4);
     glUniform1f(glGetUniformLocation(m_CurveShader, "stripCount"), 1);
 
     std::cout << "Model loc: " << m_ModelCurveLoc << std::endl;

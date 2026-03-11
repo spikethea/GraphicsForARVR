@@ -293,14 +293,14 @@ int main(void)
                Transform transform;
                transform.Position = endPoint + leafletStart;
                transform.Rotation = binormal;
-               transform.Scale = { 0.5f, 0.5f, 0.5f };
+               transform.Scale = { 1.0f, 1.0f, 1.0f };
                leafletTransforms[i].emplace_back(transform);
 
                std::vector<glm::vec3> leafletControlPoints = { {
                    glm::vec3(-0.5, -0.7f, -0.7f),
                    glm::vec3(0.0f, 0.0f, 0.0f),// origin (using B-Splin)
-                   glm::vec3(0.5f, 1.3f,  0.9f),
-                   glm::vec3(1.0f, 0.7f, 1.1f) //endpoint
+                   glm::vec3(0.5f, 1.7f,  0.9f),
+                   glm::vec3(1.5f, 0.3f, 1.1f) //endpoint
             } };
 
                 leaflets[i].emplace_back();
@@ -414,8 +414,8 @@ int main(void)
 
                                glm::vec3 up = glm::vec3(0, 1, 0);
 
-							   // Flip the binormal to get the opposite side of the leaf
-                               flippedTransform.Rotation = glm::normalize(glm::cross(up, flippedTransform.Rotation));
+							   // Flip the binormal scale to get the opposite side of the leaf
+                               flippedTransform.Scale.x = -flippedTransform.Scale.x;
 
                                 //Left Leaflets
                                 renderer.DrawCurve(
