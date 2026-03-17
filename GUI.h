@@ -5,7 +5,7 @@
 #include <imgui_impl_glfw.h>
 #include <imgui_impl_opengl3.h>
 
-#include "Mesh.h"
+#include "PalmTree.h"
 
 
 class GUI {
@@ -14,7 +14,7 @@ public:
 
 	void init(GLFWwindow* window);
 
-	void draw(int& activeIndex, std::vector<Mesh>& trees);
+	void draw(PalmTree& palmTree, Renderer& renderer);
 
 	void UIrender();
 

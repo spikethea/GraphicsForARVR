@@ -29,18 +29,21 @@ Renderer::Renderer(GLuint standardShader, GLuint curveShader)
     m_ColorCurveLoc = glGetUniformLocation(m_CurveShader, "uColor");
     // Curve Shader Basis uniform locations
     basisLoc = glGetUniformLocation(m_CurveShader, "basis");
+	// Tessellation level uniform location
+	segmentLoc = glGetUniformLocation(m_CurveShader, "segmentCount");
 
     if (basisLoc == -1)
         std::cout << "basis uniform not found\n";
 
     // Optional: one-time curve uniforms
-    glUniform1f(glGetUniformLocation(m_CurveShader, "segmentCount"), 4);
     glUniform1f(glGetUniformLocation(m_CurveShader, "stripCount"), 1);
 
     std::cout << "Model loc: " << m_ModelCurveLoc << std::endl;
     std::cout << "View loc: " << m_ViewCurveLoc << std::endl;
     std::cout << "Projection loc: " << m_ProjectionCurveLoc << std::endl;
     std::cout << "Color loc: " << m_ColorCurveLoc << std::endl;
+    std::cout << "Basis loc: " << basisLoc << std::endl;
+	std::cout << "Segment loc: " << segmentLoc << std::endl;
 
 }
 
@@ -119,6 +122,8 @@ void Renderer::DrawCurve(const CurveMesh& curveMesh, const Transform& transform,
         m_ColorCurveLoc,
         1,
         glm::value_ptr(color));
+
+    glUniform1f(segmentLoc, segmentCount);
 
     // Required for Tessellation
     glPatchParameteri(GL_PATCH_VERTICES, 4);

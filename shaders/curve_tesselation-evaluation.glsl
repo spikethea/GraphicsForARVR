@@ -31,12 +31,9 @@ void main()
 		vec4(p3,0.0)
 	);
 
-	// curve evaluation
+	// curve evaluation using matrix multiplication
 	vec4 result = G * basis * T;
 	vec3 p = result.xyz;
-
-	//curve evaluation
-	//vec3 p = b0 * p0 + b1 * p1 + b2 * p2 + b3 * p3;
 
 	gl_Position = projection * view * model * vec4(p, 1.0);
 

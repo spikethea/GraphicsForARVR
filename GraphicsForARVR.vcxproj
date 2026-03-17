@@ -143,6 +143,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp" />
+    <ClCompile Include="BasisMatrices.cpp" />
+    <ClCompile Include="BezierEvaluation.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="curve.cpp" />
     <ClCompile Include="curveMesh.cpp" />
@@ -157,6 +159,7 @@
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="PalmTree.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="ShaderLoader.cpp" />
@@ -172,7 +175,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
-    <ClInclude Include="Bezier.h" />
+    <ClInclude Include="BasisMatrices.h" />
+    <ClInclude Include="BezierEvaluation.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="curve.h" />
     <ClInclude Include="curveMesh.h" />
@@ -187,6 +191,7 @@
     <ClInclude Include="GUI.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="PalmTree.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="Transform.h" />

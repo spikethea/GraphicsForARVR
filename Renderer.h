@@ -21,6 +21,8 @@ class Renderer
 public:
     Renderer(GLuint shader, GLuint curveShader);
 
+    float segmentCount = 4.0f;
+
 
     void Draw(
         const Mesh& mesh,
@@ -53,4 +55,5 @@ private:
     GLint m_ProjectionCurveLoc;
     GLint m_ColorCurveLoc;
     GLint basisLoc;
+	GLint segmentLoc;
 };
